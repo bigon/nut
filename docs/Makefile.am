@@ -98,8 +98,8 @@ packager-guide.html packager-guide.chunked packager-guide.pdf: packager-guide.tx
 #   $ ASCIIDOC_VERBOSE=-v make
 A2X_COMMON_OPTS = $(ASCIIDOC_VERBOSE) --attribute icons \
     --xsltproc-opts "--nonet" \
-    --xsltproc-opts "--stringparam nut.localdate \"`TZ=UTC date +%Y-%m-%d`\"" \
-    --xsltproc-opts "--stringparam nut.localtime \"`TZ=UTC date +%H:%M:%S`\"" \
+    --xsltproc-opts "--stringparam nut.localdate \"`TZ=UTC date +%Y-%m-%d -d @$(SOURCE_DATE_EPOCH)`\"" \
+    --xsltproc-opts "--stringparam nut.localtime \"`TZ=UTC date +%H:%M:%S -d @$(SOURCE_DATE_EPOCH)`\"" \
     --xsltproc-opts "--stringparam nut.nutversion \"@PACKAGE_VERSION@\"" \
     --attribute iconsdir=$(srcdir)/images \
     --attribute=badges \

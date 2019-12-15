@@ -737,8 +737,8 @@ if HAVE_ASCIIDOC
 
 .txt.html:
 	$(ASCIIDOC) --backend=xhtml11 \
-		--attribute localdate=`TZ=UTC date +%Y-%m-%d` \
-		--attribute localtime=`TZ=UTC date +%H:%M:%S` \
+		--attribute localdate=`TZ=UTC date +%Y-%m-%d -d @$(SOURCE_DATE_EPOCH)` \
+		--attribute localtime=`TZ=UTC date +%H:%M:%S -d @$(SOURCE_DATE_EPOCH)` \
 		--attribute nutversion="@PACKAGE_VERSION@" \
 		-o $@ $<
 

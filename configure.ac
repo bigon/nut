@@ -1669,7 +1669,7 @@ fi
 dnl ----------------------------------------------------------------------
 
 dnl Current date
-now=`TZ=UTC date +%Y-%m-%d`
+now=`TZ=UTC date +%Y-%m-%d -d @${SOURCE_DATE_EPOCH}`
 
 AC_SUBST(now)
 AC_SUBST(OS_NAME)
